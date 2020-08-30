@@ -8,14 +8,9 @@ public class UserService {
 
     public TbUser getUser(String userName, String userPassword) {
         TbUser user = userDao.getUserByLogin(userName);
-        if(user == null ||!user.getPassword().equals(userPassword)){
+        if (user == null || !user.getPassword().equals(userPassword)) {
             return null;
         }
         return user;
-
-
-
     }
-
-
 }

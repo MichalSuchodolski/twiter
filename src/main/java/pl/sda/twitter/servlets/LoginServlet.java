@@ -1,5 +1,6 @@
 package pl.sda.twitter.servlets;
 
+
 import pl.sda.twitter.persistance.entities.TbUser;
 import pl.sda.twitter.services.UserService;
 
@@ -11,31 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
+    private final static String CURRENT_PAGE = "currentPage";
     private UserService userService;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         userService = new UserService();
     }
 
     @Override
-
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        UserService userService = new UserService();
         TbUser tbUser = userService.getUser(login, password);
-        if(tbUser == null){
+        if (tbUser == null) {
             resp.sendRedirect("login.jsp");
-        }else {
+        } else {
             HttpSession session = req.getSession();
             session.setAttribute("user", tbUser);
-            resp.sendRedirect("index.jsp");
-        }
 
+            final String currentPage = (String) session.getAttribute(CURRENT_PAGE);
+            if (currentPage != null) {
+                session.removeAttribute(CURRENT_PAGE);
+                resp.sendRedirect(currentPage);
+            } else {
+                resp.sendRedirect("index.jsp");
+            }
+        }
     }
 }

@@ -15,6 +15,5 @@
 
         <mapping class="pl.sda.twitter.persistance.entities.TbUser"/>
         <mapping class="pl.sda.twitter.persistance.entities.TbArticle"/>
-
     </session-factory>
 </hibernate-configuration>

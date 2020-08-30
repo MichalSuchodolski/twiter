@@ -1,13 +1,15 @@
 package pl.sda.twitter.persistance.entities;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "TB_USER")
-public class TbUser {
+public class TbUser implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "US_ID", unique = true, nullable = false)

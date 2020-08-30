@@ -1,13 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!doctype html>
 <html lang="en">
 <head>
-
     <jsp:include page="include/meta.jsp"/>
     <title>SDA Twitter - Log in</title>
     <meta name="description" content="strona logowania">
-    <meta name="keyword" content="log in, artykół, sda, twitter">
+    <meta name="keyword" content="log in, sda, twitter">
     <link href="css/login.css" rel="stylesheet">
 </head>
 <body>
@@ -20,8 +18,7 @@
                     <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                     <label for="inputLogin" class="sr-only">Email address</label>
-                    <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required
-                           autofocus>
+                    <input type="text" id="inputLogin" name="login" class="form-control" placeholder="Login" required autofocus>
                     <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
                     <div class="checkbox mb-3">
@@ -30,7 +27,6 @@
                         </label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
                 </form>
             </div>
         </div>
@@ -39,5 +35,3 @@
 <jsp:include page="include/footer.jsp"/>
 </body>
 </html>
-
-
